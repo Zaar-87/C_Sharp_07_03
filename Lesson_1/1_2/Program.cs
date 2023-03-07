@@ -3,35 +3,35 @@
 
 Console.Write("Enter number from 1 to 7: ");
 int num = int.Parse(Console.ReadLine()!);
-if(num == 1)
+if (num == 1)
 {
-    Console.Write("monday");
+    Console.Write("Monday");
 }
-else if(num == 2)
+else if (num == 2)
 {
-    Console.Write("tuesday");
+    Console.Write("Tuesday");
 }
-else if(num == 3)
+else if (num == 3)
 {
-    Console.Write("wednesday");
+    Console.Write("Wednesday");
 }
-else if(num == 4)
+else if (num == 4)
 {
-    Console.Write("thursday");
+    Console.Write("Thursday");
 }
-else if(num == 5)
+else if (num == 5)
 {
-    Console.Write("friday");
+    Console.Write("Friday");
 }
-else if(num == 6)
+else if (num == 6)
 {
-    Console.Write("saturday");
+    Console.Write("Saturday");
 }
-else if(num == 7)
+else if (num == 7)
 {
-    Console.Write("sunday");
+    Console.Write("Sunday");
 }
 else
 {
-    Console.WriteLine("error");
+    Console.WriteLine("Тumber is out of range!");
 }

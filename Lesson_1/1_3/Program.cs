@@ -3,14 +3,14 @@
 
 
 Console.Write("N=");
-int n=int.Parse(Console.ReadLine()!);
+int n = int.Parse(Console.ReadLine()!);
 
-int count=-n;
+int count = -n;
 
-while (count!=n)
+while (count != n)
 {
     Console.WriteLine(count);
-    if (n<0)
+    if (n < 0)
     {
         count--;
     }
