@@ -15,8 +15,9 @@ void Result(int num_w_d)
     {
         Console.WriteLine("This is a day off!");
     }
-    else if (num_w_d < 6)
+    else if (num_w_d < 1 || num_w_d > 7)
     {
-        Console.WriteLine("This is a working day :(");
+    Console.WriteLine("Error! This is not a number of a day of the week!");
     }
+    else Console.WriteLine("This is a working day :(");
 }
