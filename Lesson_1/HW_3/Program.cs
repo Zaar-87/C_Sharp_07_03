@@ -2,3 +2,13 @@
 // Пример:
 // 5 -> 2, 4
 // 8 -> 2, 4, 6, 8
+
+Console.Write("Enter the number: ");
+int num1 = int.Parse(Console.ReadLine()!);
+int ind = 2;
+
+while (ind <= num1)
+{
+    Console.Write($"{ind}, ");
+    ind = ind + 2;
+}
