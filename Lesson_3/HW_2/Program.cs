@@ -3,20 +3,20 @@
 // 5 -> 1, 8, 27, 64, 125
 
 Console.Write("Enter the number: ");
-Squares(int.Parse(Console.ReadLine()!));
+Cubes(int.Parse(Console.ReadLine()!));
 
-void Squares(int n)
+void Cubes(int n)
 {
     double[] numbers = new double[n];
     int i = 0;
 
-    Console.Write($"Number {n} gives you such cube table : ");
+    Console.Write($"From 1 up to {n} you have such cube values: ");
 
     while (i < n)
     {
         numbers[i] = Math.Pow((i + 1), 3);
         Console.Write($"{numbers[i]} ");
-        i += 1;
-    }    
+        i++;
+    }
     Console.WriteLine();
 }
