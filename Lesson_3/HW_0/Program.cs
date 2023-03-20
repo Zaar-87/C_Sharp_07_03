@@ -6,6 +6,13 @@
 
 Console.Write("Enter the five-digit number: ");
 int set_of_num = int.Parse(Console.ReadLine()!);
+
+if (set_of_num >= 100000 || set_of_num < 1000)
+{
+    Console.WriteLine($"{set_of_num} is not a five-digit number!");
+    return;
+}
+
 Palindrome(set_of_num);
 
 void Palindrome(int set_of_num)
