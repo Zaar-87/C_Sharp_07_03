@@ -2,3 +2,20 @@
 // 452 -> 11
 // 82 -> 10
 // 9012 -> 12
+
+Console.Write("Enter a number: ");
+int num = int.Parse(Console.ReadLine()!);
+
+int NumbersSum(int n)
+{
+    int n_sum = 0;
+
+    while (n > 0)
+    {
+        n_sum += n % 10;
+        n /= 10;
+    }
+    return n_sum;
+}
+
+Console.WriteLine($"Sum result: {NumbersSum(num)}");
