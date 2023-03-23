@@ -11,13 +11,13 @@ PrintArray (arr);
 int[] pairsArr = MultiplyPairs(arr);
 PrintArray(pairsArr);
 
-int GetUserNumber(string name)
-{
-    int number = 0;
-    Console.Write($"Please enter {name}: ");
-    number = int.Parse(Console.ReadLine()!);
-    return number;
-}
+//int GetUserNumber(string name)
+//{
+//    int number = 0;
+//    Console.Write($"Please enter {name}: ");
+//    number = int.Parse(Console.ReadLine()!);
+//    return number;
+//}
 
 int[] MakeArray(int length, int min, int max)
 {
