@@ -8,46 +8,46 @@ int init_from = int.Parse(Console.ReadLine()!);
 Console.Write("Enter final number: ");
 int init_to = int.Parse(Console.ReadLine()!);
 
-int[] massive = Mass(quant, init_from, init_to);
+double[] massive = Mass(quant, init_from, init_to);
 
+Console.WriteLine($"Generated array: ");
 Print(massive);
+CompareDiff(massive);
 Console.WriteLine();
-Console.WriteLine(Compare(massive));
 
 //Functions
-int[] Mass(int size, int from, int to)
+double[] Mass(int size, int from, int to)
 {
-    int[] array = new int[size];
+    double[] array = new double[size];
+    Random n_new = new Random();
 
     for (int i = 0; i < size; i++)
-        array[i] = new Random().Next(from, to);
+        array[i] = Math.Round(n_new.NextDouble() * (to - from) + from, 2);
     return array;
 }
 
-void Print(int[] array)
+void Print(double[] array)
 {
     int size = array.Length;
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)    
         Console.Write($"{array[i]} ");
+    
+    Console.WriteLine();
 }
 
-int Compare(int[] array)
+void CompareDiff(double[] array)
 {
-    int min = array[0];
-    int max = array[0];
-    int diff = 0;
+    double min = array[0];
+    double max = array[0];
     for (int i = 0; i < array.Length; i++)
     {
         if(array[i] < min)
-        {
-            min = array[i];
-        } 
-        else
-        {
+            min = array[i]; 
+        else if (array[i] > max)
             max = array[i];
-        } 
     }
-    diff = max - min;
-    return diff;
+    Console.Write($"Minimum number: {min}, Maximum number: {max}. ");
+    Console.WriteLine();
+    Console.WriteLine($"Difference: {max} - ({min}) = {Math.Round(max - min, 2)}");
 }

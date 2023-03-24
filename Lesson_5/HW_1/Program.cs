@@ -11,9 +11,10 @@ int init_to = int.Parse(Console.ReadLine()!);
 
 int[] massive = Mass(quant, init_from, init_to);
 
+Console.WriteLine($"Generated array: ");
 Print(massive);
 Console.WriteLine();
-Console.WriteLine(ElementsSumOnOdd(massive));
+Console.WriteLine($"Sum of elements on odd positions: {ElementsSumOnOdd(massive)}");
 
 //Functions
 int[] Mass(int size, int from, int to)
@@ -36,7 +37,7 @@ void Print(int[] array)
 int ElementsSumOnOdd(int[] massive)
 {
     int sum = 0;
-    for (int i = 0; i < massive.Length; i=i+2)
+    for (int i = 0; i < massive.Length; i+=2)
     {
         sum = sum + massive[i];
     }

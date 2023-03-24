@@ -5,8 +5,11 @@ Console.Write("Enter quantity of numbers in array: ");
 int n = int.Parse(Console.ReadLine()!);
 
 int[] array = GenerateArray();
+
+Console.WriteLine($"Generated array: ");
 Print(array);
-Console.WriteLine(EvenNumbersQuant(array));
+Console.WriteLine();
+Console.WriteLine($"Even number quantity: {EvenNumbersQuant(array)}");
 
 //Functions
 int[] GenerateArray()
