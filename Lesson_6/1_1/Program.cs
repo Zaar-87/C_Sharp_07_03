@@ -1,2 +1,2 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿//Задача 1: Напишите программу, которая принимает на вход три 
+//числа и проверяет, может ли существовать треугольник с сторонами такой длины.
