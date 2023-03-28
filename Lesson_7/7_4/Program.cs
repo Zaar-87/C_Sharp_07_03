@@ -1,6 +1,5 @@
-﻿// 3. Задайте двумерный массив. Найдите сумму элементов главной диагонали.
-//    https://4apple.org/summa-diagonalnyh-jelementov-matricy/
-//    https://ru.wikipedia.org/wiki/%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D0%B4%D0%B8%D0%B0%D0%B3%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C
+﻿// 4. Задайте двумерный массив. Введите элемент, и найдите первое его вхождение,
+//    выведите позиции по горизонтали и вертикали, или напишите, что такого элемента нет.
 
 Console.Write("Кол-во элементов в строке:");
 int y = int.Parse(Console.ReadLine()!);
@@ -43,20 +42,24 @@ void PrintArray(int[,] arr)
 int[,] array = MakeArray(x, y, a, b);
 PrintArray(array);
 ////////////////////////////////////////////
+// 4. Задайте двумерный массив. Введите элемент, и найдите первое его вхождение,
+//    выведите позиции по горизонтали и вертикали, или напишите, что такого элемента нет.
 
-int Sum(int[,] arr)
+Console.Write("Введите число для поиска:");
+int n = int.Parse(Console.ReadLine()!);
+
+string FindNum(int[,] arr, int x)
 {
-    int sum = 0;
 
     for (int i = 0; i < arr.GetLength(0); i++)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
         {
-            if (i==j) sum+=arr[i,j];
+            if (arr[i, j] == x) return $"Искомое число {x}. Его координаты [{i + 1},{j + 1}].";
         }
     }
+    return $"Искомое число {x} не найдено.";
 
-    return sum;
 }
 
-Console.WriteLine(Sum(array));
+Console.Write(FindNum(array,n));
