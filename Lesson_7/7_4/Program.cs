@@ -1,65 +1,70 @@
 ﻿// 4. Задайте двумерный массив. Введите элемент, и найдите первое его вхождение,
 //    выведите позиции по горизонтали и вертикали, или напишите, что такого элемента нет.
 
-Console.Write("Кол-во элементов в строке:");
-int y = int.Parse(Console.ReadLine()!);
-Console.Write("Кол-во элементов в столбце:");
-int x = int.Parse(Console.ReadLine()!);
-Console.Write("Начало диапозона:");
-int a = int.Parse(Console.ReadLine()!);
-Console.Write("Конец диапозона:");
-int b = int.Parse(Console.ReadLine()!);
+//input data
+Console.Write("Enter the number of rows: ");
+int row_num = int.Parse(Console.ReadLine()!);
 
-int[,] MakeArray(int x, int y, int m, int n)
+Console.Write("Enter the number of columns: ");
+int column_num = int.Parse(Console.ReadLine()!);
+
+Console.Write("Enter the min number of massive: ");
+int start = int.Parse(Console.ReadLine()!);
+
+Console.Write("Enter the max number of massive: ");
+int stop = int.Parse(Console.ReadLine()!);
+
+int[,] mass = MassNums(row_num, column_num, start, stop);
+
+Console.WriteLine("Initial array: ");
+Print(mass);
+
+Console.Write("Enter the number for search:");
+int n = int.Parse(Console.ReadLine()!);
+
+//Functions
+
+//2D array output
+void Print(int[,] array)
 {
-    int[,] array = new int[x, y];
+    int row_size = array.GetLength(0);
+    int column_size = array.GetLength(1);
 
-    for (int i = 0; i < x; i++)
+    for (int i = 0; i < row_size; i++)
     {
-        for (int j = 0; j < y; j++)
-        {
-            array[i, j] = new Random().Next(m, n + 1);
-        }
-
-    }
-
-    return array;
-}
-
-void PrintArray(int[,] arr)
-{
-    for (int i = 0; i < arr.GetLength(0); i++)
-    {
-        for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            Console.Write($"{arr[i, j]} ");
-        }
+        for (int j = 0; j < column_size; j++)
+            Console.Write($" {array[i, j]} ");
         Console.WriteLine();
     }
     Console.WriteLine();
 }
 
-int[,] array = MakeArray(x, y, a, b);
-PrintArray(array);
-////////////////////////////////////////////
-// 4. Задайте двумерный массив. Введите элемент, и найдите первое его вхождение,
-//    выведите позиции по горизонтали и вертикали, или напишите, что такого элемента нет.
+//filling a two-dimensional array with random numbers from a range specified by the user
+int[,] MassNums(int row, int column, int from, int to)
+{
+    int[,] array = new int[row, column];
 
-Console.Write("Введите число для поиска:");
-int n = int.Parse(Console.ReadLine()!);
+    for (int i = 0; i < row; i++)
+        for (int j = 0; j < column; j++)
+            array[i, j] = new Random().Next(from, to + 1);
 
-string FindNum(int[,] arr, int x)
+    return array;
+}
+
+//number lookup function
+string FindNum(int[,] array, int x)
 {
 
-    for (int i = 0; i < arr.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            if (arr[i, j] == x) return $"Искомое число {x}. Его координаты [{i + 1},{j + 1}].";
+            if (array[i, j] == x) return $"Searched number {x}. It's coordinates [{i + 1},{j + 1}].";
         }
     }
-    return $"Искомое число {x} не найдено.";
+    return $"Searched number {x} not found!";
 
 }
 
-Console.Write(FindNum(array,n));
+//result
+Console.Write(FindNum(mass, n));
