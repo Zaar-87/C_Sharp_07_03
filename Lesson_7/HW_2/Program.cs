@@ -5,6 +5,7 @@
 8 4 2 4
 Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3
 */
+
 //input data
 Console.Write("Enter the number of rows: ");
 int row_num = int.Parse(Console.ReadLine()!);

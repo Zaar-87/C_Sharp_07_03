@@ -20,7 +20,7 @@ int stop = int.Parse(Console.ReadLine()!);
 
 double[,] mass = MassNums(row_num, column_num, start, stop);
 
-Console.WriteLine("initial array: ");
+Console.WriteLine("Initial array: ");
 Print(mass);
 
 //Functions
