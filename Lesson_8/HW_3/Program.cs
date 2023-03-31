@@ -1,15 +1,88 @@
 ﻿/*
-Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
-Массив размером 2 x 2 x 2
-66(0,0,0) 25(0,1,0)
-34(1,0,0) 41(1,1,0)
-27(0,0,1) 90(0,1,1)
-26(1,0,1) 55(1,1,1)
-
-Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
-Например, на выходе получается вот такой массив:
-01 02 03 04
-12 13 14 05
-11 16 15 06
-10 09 08 07
+Задача 60. Задайте двумерный массив из целых чисел. Напишите программу,
+которая удалит строку и столбец, на пересечении которых расположен наименьший элемент массива.
 */
+
+//input data
+Console.Write("Enter the number of rows: ");
+int row_num = int.Parse(Console.ReadLine()!);
+
+Console.Write("Enter the number of columns: ");
+int column_num = int.Parse(Console.ReadLine()!);
+
+Console.Write("Enter the min number of massive: ");
+int start = int.Parse(Console.ReadLine()!);
+
+Console.Write("Enter the max number of massive: ");
+int stop = int.Parse(Console.ReadLine()!);
+
+int[,] mass = MassNums(row_num, column_num, start, stop);
+
+Console.WriteLine();
+Console.WriteLine("Initial array: ");
+Print(mass);
+SumRows(mass);
+
+//Functions
+
+//2D array output
+void Print(int[,] array)
+{
+    int row_size = array.GetLength(0);
+    int column_size = array.GetLength(1);
+
+    for (int i = 0; i < row_size; i++)
+    {
+        for (int j = 0; j < column_size; j++)
+            Console.Write($" {array[i, j]} ");
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+//filling a two-dimensional array with random numbers from a range specified by the user
+int[,] MassNums(int row, int column, int from, int to)
+{
+    int[,] array = new int[row, column];
+
+    for (int i = 0; i < row; i++)
+        for (int j = 0; j < column; j++)
+            array[i, j] = new Random().Next(from, to + 1);
+
+    return array;
+}
+
+//finding row with smallest sum of elements
+int[,] SumRows(int[,] mass)
+{
+    int row_size = mass.GetLength(0);
+    int column_size = mass.GetLength(1);
+
+    int row_min_numer = 0;
+    int sum_min = 0;
+
+    for (int i = 0; i < row_size; i++)
+    {
+        int sum_row = 0;
+
+        for (int j = 0; j < column_size; j++)
+        {
+            sum_row += mass[i, j];
+        }
+        if (i == 0)
+        {
+            sum_min = sum_row;
+            row_min_numer = i;
+        }
+        else if (sum_min > sum_row)
+        {
+            sum_min = sum_row;
+            row_min_numer = i;
+        }
+
+        Console.WriteLine($"sum of elements in row {i + 1} = {sum_row}");
+    }
+    Console.WriteLine();
+    Console.WriteLine($"The smallest sum of elements in row: {row_min_numer + 1}");
+    return mass;
+}
