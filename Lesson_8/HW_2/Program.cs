@@ -80,9 +80,9 @@ int[,] ArraysMultiplication(int[,] array1, int[,] array2)
 
     if (column_size_1 == row_size_2)
     {
-        for (int i = 0; i < row_size_res; i++)
+        for (int i = 0; i < resultArray.GetLength(0); i++)
         {
-            for (int j = 0; j < column_size_res; j++)
+            for (int j = 0; j < resultArray.GetLength(1); j++)
             {
                 resultArray[i, j] = 0;
                 for (int k = 0; k < column_size_1; k++)
