@@ -66,7 +66,7 @@ string FindNum(int[,] array, int i_n, int j_n)
     {
         return "ERROR! Out of range both parameters!";
     }
-    if (i_n > array.GetLength(0) || i_n <=0)
+    else if (i_n > array.GetLength(0) || i_n <=0)
     {
         return "ERROR! Out of range (line)!";
     }
