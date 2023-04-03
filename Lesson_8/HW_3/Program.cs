@@ -17,11 +17,11 @@ Console.Write("Enter the max number of massive: ");
 int stop = int.Parse(Console.ReadLine()!);
 
 int[,] mass = MassNums(row_num, column_num, start, stop);
+int[,] matrix = new int[row_num - 1, column_num - 1];
 
 Console.WriteLine();
 Console.WriteLine("Initial array: ");
 Print(mass);
-SumRows(mass);
 
 //Functions
 
@@ -50,39 +50,4 @@ int[,] MassNums(int row, int column, int from, int to)
             array[i, j] = new Random().Next(from, to + 1);
 
     return array;
-}
-
-//finding row with smallest sum of elements
-int[,] SumRows(int[,] mass)
-{
-    int row_size = mass.GetLength(0);
-    int column_size = mass.GetLength(1);
-
-    int row_min_numer = 0;
-    int sum_min = 0;
-
-    for (int i = 0; i < row_size; i++)
-    {
-        int sum_row = 0;
-
-        for (int j = 0; j < column_size; j++)
-        {
-            sum_row += mass[i, j];
-        }
-        if (i == 0)
-        {
-            sum_min = sum_row;
-            row_min_numer = i;
-        }
-        else if (sum_min > sum_row)
-        {
-            sum_min = sum_row;
-            row_min_numer = i;
-        }
-
-        Console.WriteLine($"sum of elements in row {i + 1} = {sum_row}");
-    }
-    Console.WriteLine();
-    Console.WriteLine($"The smallest sum of elements in row: {row_min_numer + 1}");
-    return mass;
 }
