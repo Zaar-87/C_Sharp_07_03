@@ -7,7 +7,7 @@ Console.Write("Enter the number: ");
 int num = int.Parse(Console.ReadLine()!);
 
 //functions
-long GetSum(long num)
+int GetSum(int num)
 {
     if (num == 0) //null
     {
