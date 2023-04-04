@@ -1,6 +1,7 @@
 ﻿//  Задайте значения M и N. Напишите программу, которая
 // выведет все натуральные числа в промежутке от M до N
 
+
 //input data
 Console.Write("Enter M number: ");
 int m = int.Parse(Console.ReadLine()!);

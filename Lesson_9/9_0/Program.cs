@@ -3,6 +3,7 @@
 // N = 5 -> "1, 2, 3, 4, 5"
 // N = 6 -> "1, 2, 3, 4, 5, 6"
 
+
 //input data
 Console.Write("Enter the first number: ");
 int n = int.Parse(Console.ReadLine()!);
