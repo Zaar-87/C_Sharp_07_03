@@ -3,21 +3,18 @@
 // N = 5 -> "1, 2, 3, 4, 5"
 // N = 6 -> "1, 2, 3, 4, 5, 6"
 
-
 //input data
-Console.Write("Enter the first number: ");
-int n = int.Parse(Console.ReadLine()!);
-
+Console.Write("Enter the number: ");
+int N = int.Parse(Console.ReadLine()!);
+	
 //functions
-string PrintNums(int begin, int n)
+void PrintNums(int n)
 {
-    if (begin == n)
-    {
-        return begin.ToString();
-    }
-    return (begin + "  " + PrintNums(begin + 1, n));
+	if (n == 0) return;
+	PrintNums(n - 1);
+	Console.Write($"{n} ");
 }
-
+	
 //result
 Console.Write("Result: ");
-Console.WriteLine(PrintNums(1, n));
+PrintNums(N);
