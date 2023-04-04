@@ -1,29 +1,23 @@
-﻿// Задача 69: Напишите программу, которая на вход принимает два числа A и B, 
-//и возводит число А в целую степень B с помощью рекурсии.
-// A = 3; B = 5 -> 243 (3⁵)
-// A = 2; B = 3 -> 8
+﻿//  Задайте значения M и N. Напишите программу, которая
+// выведет все натуральные числа в промежутке от M до N
 
 //input data
-Console.Write("Enter the number: ");
-int num = int.Parse(Console.ReadLine()!);
+Console.Write("Enter M number: ");
+int m = int.Parse(Console.ReadLine()!);
 
-Console.Write("Enter degree: ");
-int degree = int.Parse(Console.ReadLine()!);
+Console.Write("Enter N number: ");
+int n = int.Parse(Console.ReadLine()!);
 
 //functions
-int Pow(int num, int degree)
+string PrintNumbers(int m, int n)
 {
-    if (degree == 0) //null
+    if (m == n)
     {
-        return 1;
+        return m.ToString();
     }
-    else if (degree == 1) //one
-    {
-        return num;
-    }
-    return (num * Pow(num, --degree));
+    return (m + " " + PrintNumbers(++m, n));
 }
 
 //result
 Console.Write("Result: ");
-Console.WriteLine(Pow(num, degree));
+Console.WriteLine(PrintNumbers(m, n));
