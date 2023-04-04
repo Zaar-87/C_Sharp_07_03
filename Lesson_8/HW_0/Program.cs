@@ -29,10 +29,6 @@ Console.WriteLine();
 Console.WriteLine("Initial array: ");
 Print(mass);
 
-LineElDecreasing(mass);
-Console.WriteLine("Array sorted in descending order: ");
-Print(mass);
-
 //Functions
 
 //2D array output
@@ -69,19 +65,20 @@ void LineElDecreasing(int[,] mass)
     int column_size = mass.GetLength(1);
 
     for (int i = 0; i < row_size; i++)
-    {
         for (int j = 0; j < column_size; j++)
-        {
             for (int decr = 0; decr < column_size - 1; decr++)
             {
                 int column = decr + 1;
                 if (mass[i, column] > mass[i, decr])
                 {
-                    int temp = mass[i, column];
+                    int tmp = mass[i, column];
                     mass[i, column] = mass[i, decr];
-                    mass[i, decr] = temp;
+                    mass[i, decr] = tmp;
                 }
             }
-        }
-    }
 }
+
+//result
+LineElDecreasing(mass);
+Console.WriteLine("Array sorted in descending order: ");
+Print(mass);

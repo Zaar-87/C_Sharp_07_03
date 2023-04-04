@@ -66,6 +66,8 @@ int[,] ArrayNums(int row, int column, int from, int to)
     return array;
 }
 
+int[,] resultArray = ArraysMultiplication(array1, array2);
+
 //function of multiplication of two consistent arrays/matrices
 int[,] ArraysMultiplication(int[,] array1, int[,] array2)
 {
@@ -86,9 +88,7 @@ int[,] ArraysMultiplication(int[,] array1, int[,] array2)
             {
                 resultArray[i, j] = 0;
                 for (int k = 0; k < column_size_1; k++)
-                {
                     resultArray[i, j] += array1[i, k] * array2[k, j];
-                }
             }
         }
     }
@@ -101,5 +101,4 @@ int[,] ArraysMultiplication(int[,] array1, int[,] array2)
 
 //result
 Console.WriteLine("Result of arrays multiplication:");
-int[,] resultArray = ArraysMultiplication(array1, array2);
 Print(resultArray);
