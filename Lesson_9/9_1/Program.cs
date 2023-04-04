@@ -9,15 +9,15 @@ Console.Write("Enter N number: ");
 int n = int.Parse(Console.ReadLine()!);
 
 //functions
-string PrintNumbers(int m, int n)
+string PrintNums(int m, int n)
 {
     if (m == n)
     {
         return m.ToString();
     }
-    return (m + " " + PrintNumbers(++m, n));
+    return (m + " " + PrintNums(++m, n));
 }
 
 //result
 Console.Write("Result: ");
-Console.WriteLine(PrintNumbers(m, n));
+Console.WriteLine(PrintNums(m, n));
